@@ -20,7 +20,7 @@ function getPDO() {
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"
     );
 
-    //Retorna un nuevo objeto de tipo DBO
+    //Retorna un nuevo objeto de tipo PDO
     return new PDO($connStr, DB_USER, DB_PASSWORD, $dbOpt);
 }
 
