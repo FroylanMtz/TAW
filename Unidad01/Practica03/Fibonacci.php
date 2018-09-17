@@ -8,9 +8,8 @@
 <body>
     
 <?php
+
 /*Clase que representa un objeto donde se encuentran dos array numericos de dim 25. en los cuales uno tiene valores almacenados y el otro genera la serie fibonacci*/
-
-
 class array_num{
 
     public $array;  //Original
