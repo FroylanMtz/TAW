@@ -25,6 +25,15 @@ $total_users = count($user_access); //Se hace un conteo de cuantos registros se 
       <div class="large-9 columns">
         <h3>Listado de jugadores<h3>
           <p></p>
+        
+        <?php
+            if($t == 1){
+                echo '<h3>Futbolistas</h3>';
+            }else{
+                echo '<h3>Basquetbolistas</h3>';
+            }
+        ?>
+
         <div class="section-container tabs" data-section>
           <section class="section">
             <div class="content" data-slug="panel1">
@@ -40,6 +49,8 @@ $total_users = count($user_access); //Se hace un conteo de cuantos registros se 
                     <th width="250">Posicion</th>
                     <th width="250">Carrera</th>
                     <th width="250">Email</th>
+                    <th width="250">Modificar</th>
+                    <th width="250">Eliminar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,7 +63,9 @@ $total_users = count($user_access); //Se hace un conteo de cuantos registros se 
                     <td><?php echo $user['email'] ?></td>
                     <?//Se generan dos botones, que redireccionan a acutalizaar y eliminar respectivamente."?>
                     <td><a href="./update.php?id=<?php echo($user['id']); ?>&t=<?php echo($t) ?>" class="button radius tiny warning"">Modificar</a></td>
-                    <td><a href="./delete.php?id=<?php echo($user['id']); ?>" class="button radius tiny alert" onClick="wait();">Eliminar</a></td>
+                    
+                    <td><a href="./delete.php?id=<?php echo($user['id']); ?>&t=<?php echo($t) ?>" class="button radius tiny alert" onClick="wait();">Eliminar</a></td>
+
                   </tr>
                   <?php } ?>
                   <tr>

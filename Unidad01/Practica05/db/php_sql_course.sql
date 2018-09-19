@@ -1,17 +1,14 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-/*Futbolistas: 1 Basketbolistas: 2*/
-
-
 /*Comando que crea la base de datos, si no existe la crea*/
 CREATE DATABASE IF NOT EXISTS php_sql_course;
 
 /*Se selecciona la bd*/
 USE php_sql_course;
 
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 CREATE TABLE `sport_team` (
   `id` varchar(128) NOT NULL,
@@ -73,10 +70,11 @@ CREATE TABLE `user_type` (
   `name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*Futbolistas: 1 Basketbolistas: 2*/
 
 INSERT INTO `user_type` (`id`, `name`) VALUES
-(1, 'Final'),
-(2, 'Admin');
+(1, 'Futbolista'),
+(2, 'Basketbolista');
 
 ALTER TABLE `sport_team`
   ADD PRIMARY KEY (`id`);

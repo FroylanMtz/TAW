@@ -1,12 +1,12 @@
 <?php
-  //require_once("db/database_utilities.php");
+  require_once("db/database_utilities.php");
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practica 06 |  Ejercicio 1</title>
+    <title>Practica 05 |  Ejercicio 1</title>
     <link rel="stylesheet" href="./css/foundation.css" />
     <script src="./js/vendor/modernizr.js"></script>
   </head>
@@ -44,16 +44,16 @@
                 </thead>
                 <tr>
                   <td>
-                    <?php echo(count_users())?>
+                    <?php echo(count_table('user') )?>
                   </td>
                   <td>
-                    <?php echo(count_types())?>
+                    <?php echo(count_table('user_type'))?>
                   </td>
                   <td>
-                    <?php echo(count_status())?>
+                    <?php echo(count_table('status'))?>
                   </td>
                   <td>
-                    <?php echo(count_access())?>
+                    <?php echo(count_table('user_log'))?>
                   </td>
                   <td>
                     <?php echo(count_active())?>
@@ -74,7 +74,7 @@
           $count=0;
 
           foreach($tables as $t){
-            $r = selectAllFromTable($t);  
+            $r = selectAllFromTable($t);
             echo("Tabla: ".$t);
           ?>
             <table>
