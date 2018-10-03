@@ -1,6 +1,6 @@
 <?php
 
-public class MvcController(){
+class MvcController{ 
     //Llamar a la plantilla
     public function plantilla(){
         //Include se utiliza para invocar el arhivo que contiene el codigo HTML

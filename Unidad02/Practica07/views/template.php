@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,7 +8,7 @@
         header{
             position: relative;
             margin: auto;
-            text-aling: center;
+            text-align: center;
             padding: 5px;
         }
         nav{
@@ -37,15 +37,20 @@
             color: white;
             text-decoration: none;
         }
+        
         section{
             position: relative;
-            padding: 20%
+            padding: 20%;
         }
     </style>
 </head>
 <body>
     
     <header><h1> TAW - PHP MVC </h1></header>
+
+    <?php
+        include('modules/navegacion.php');
+    ?>
 
     <section>
     <?php
@@ -54,7 +59,7 @@
         $mvc = new MvcController();
 
         //Mostramos la funcion 
-        $mvc->enlacesPaginasController();
+        $mvc -> enlacesPaginasController();
 
     ?>
     </section>

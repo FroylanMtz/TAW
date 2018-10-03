@@ -6,4 +6,4 @@
         <li> <a href="index.php?action=servicios"> Servicios </a> </li>
         <li> <a href="index.php?action=contacto"> Contactenos </a> </li>
     </ul>
-<nav>
+</nav>

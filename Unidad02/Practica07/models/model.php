@@ -1,7 +1,7 @@
 <?php
 
 
-public class EnlacesPaginas(){
+class EnlacesPaginas{
 
     //Una funcion con el parametro $enlacesModel que se recibe a traves del controlador
 
@@ -14,12 +14,12 @@ public class EnlacesPaginas(){
 
         //Una vez que action vienen vacio (validnaod en el controlador) enctonces se consulta si la variable $enlacesModel es igual a la cadena index de ser asi se muestre index.php
         else if($enlacesModel == "index"){
-            $module = "views/modlues/inicio.php";
+            $module = "views/modules/inicio.php";
         }
 
         //Validar una LISTA BLANCA 
         else{
-            $module = "views/modlues/inicio.php";
+            $module = "views/modules/inicio.php";
         }
 
         return $module;
