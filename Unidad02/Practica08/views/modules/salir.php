@@ -3,3 +3,5 @@
 <?php
 
 echo 'Has salido hehe xD';
+
+?>
