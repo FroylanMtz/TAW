@@ -8,6 +8,7 @@ require_once('models/enlaces.php');
 require_once('models/crud.php');
 require_once('controllers/controller.php');
 
+
 //Para poder ver el template o plantilla, se hace una peticion mediante a un controlar
 //creamos el objeto:
 $mvc = new MvcController();

@@ -17,7 +17,7 @@
 
     //Instancia del objeto del controlador para hacer la validacion de los datos
     $ingreso = new MvcController();
-    $ingreso->ingresoUsuarioController();
+    $ingreso->ingresoUsuarios();
 
     if(isset($_GET['action'])){
         if($_GET['action'] == "fallo"){

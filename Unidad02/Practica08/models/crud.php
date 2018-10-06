@@ -27,7 +27,7 @@ class Datos extends Conexion{
 
     public function ingresoDeUsuarios($datosModel, $tabla){
 
-        $stmt = Conexion::conectar()->prepare("SELECT usuario, password FROM $tabla WHERE usuario = :usuario AND password = :password");
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE usuario = :usuario AND password = :password");
 
         $stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
 
@@ -35,15 +35,30 @@ class Datos extends Conexion{
 
         $stmt->execute();
 
-        //return $stmt->fetch();
+        $r = array();
 
-        if($stmt->fetch()){
-            return true;
-        }else{
-            return false;
-        }
+        $r = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $stmt->close();
+        return $r;
+        
+    }
+
+    //Function que retorna el password del usuario, con el fin de que lo valide cuando se va a eliminar un ususrio
+
+    public function passDeUsuario($id, $tabla){
+        
+        $stmt = Conexion::conectar()->prepare("SELECT password FROM $tabla WHERE id = :id");
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $r = array();
+
+        $r = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $r;
+
     }
 
     //Traer todos los datos de la tabla

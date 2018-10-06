@@ -1,7 +1,13 @@
-<h1>Has salido</h1>
-
 <?php
+session_start();
 
-echo 'Has salido hehe xD';
+
+if(isset($_SESSION['iniciada']) ){
+    session_destroy();
+    echo '<h1>Has salido</h1>';
+}else{
+    echo 'Para salir necesitar iniciar sesion';
+}
+
 
 ?>

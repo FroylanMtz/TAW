@@ -31,16 +31,10 @@
             <td><?php echo $r[$i]['password'] ?></td>
             <td><?php echo $r[$i]['email'] ?></td>
             <td><a href="index.php?action=editar&id=<?=$r[$i]['id']?>">Modificar</a></td>
-            <td><a href="index.php?action=usuarios&id=<?=$r[$i]['id']?>">Eliminar</a></td>
+            <td><a href="index.php?action=eliminar&id=<?=$r[$i]['id']?>">Eliminar</a></td>
         </tr>
         <?php } ?>
 
     </tbody>
 </table>
 
-<?php
-
-    $datos = new MvcController();
-    $r = $datos->eliminaDatosUsuario();
-
-?>

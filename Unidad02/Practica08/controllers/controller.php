@@ -51,21 +51,25 @@ class MvcController{
     }
 
     //Funcion para validar al usuario en el login
-    public function ingresoUsuarioController(){
+    public function ingresoUsuarios(){
 
-        if(isset($_POST["usuario"])){
+        if(isset($_POST["usuario"]) ){
 
             $datosController = array("usuario" => $_POST['usuario'],
                                      "password" => $_POST['pass']);
             
             $respuesta = Datos::ingresoDeUsuarios($datosController, "usuarios");
 
+            
             if( $respuesta ){
 
                 session_start();
 
-                $_SESSION["ok"] = true;
+                $_SESSION['iniciada'] = true;
 
+                $_SESSION['id_usuario'] = $respuesta['id'];
+
+                //echo $respuesta['id'];
                 header("location:index.php?action=usuarios");
             }else{
 
@@ -78,11 +82,13 @@ class MvcController{
 
     }
 
+
     //Funcion para traer la lista de todos los usuarios de la tabla con el mismo nombre
     public function traerUsuarios(){
+        session_start();
 
+        if( isset($_SESSION['iniciada']) ){
 
-        //if($_SESSION["ok"] == true){
 
             //$asd = $_SESSION["ok"];
 
@@ -94,11 +100,14 @@ class MvcController{
                 echo "No se encontraron registros";
             }
 
-        //}
+        }else{
+            echo 'Debe iniciar sesion para ver esto';
+            return [];
+        }
 
     }
 
-    //Traer los datos de un unico usuario que se pondran en el formulario en donde se actualizan los datos
+    
     //Se pasara el id por medio de un dato enviado a traves de metodo GET
     public function traerDatosUsuario(){
 
@@ -139,25 +148,36 @@ class MvcController{
 
     }
 
+
     //Elimina los datos de un usuario especificado a traves del envio de un parametro GET
     public function eliminaDatosUsuario(){
+        session_start();
+
+        $pass = Datos::passDeUsuario($_SESSION['id_usuario'], "usuarios");
 
 
-        if(isset($_GET["id"])){
+        if($_POST['contra_confirm'] == $pass['password'] ){
 
-            $datosUsuario = $_GET["id"];
+            if(isset($_GET["id"])){
 
-            $respuesta = Datos::eliminarDatos($datosUsuario, "usuarios");
-
-            if( $respuesta >= 1 ){
-
-                header("location:index.php?action=usuarios");
-            }else{
-                echo 'Error al eliminar';
+                $datosUsuario = $_GET["id"];
+    
+                $respuesta = Datos::eliminarDatos($datosUsuario, "usuarios");
+    
+                if( $respuesta >= 1 ){
+    
+                    header("location:index.php?action=usuarios");
+                }else{
+                    echo 'Error al eliminar';
+                }
+    
             }
 
+        }else{
+            echo 'Contraseña incorrecta';
         }
 
+        
     }
 
 }
