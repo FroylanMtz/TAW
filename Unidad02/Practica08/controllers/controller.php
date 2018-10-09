@@ -76,10 +76,7 @@ class MvcController{
                 header("location:index.php?action=registro");
             
             }
-
         }
-
-
     }
 
 
