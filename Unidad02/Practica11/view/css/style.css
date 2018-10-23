@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+ol { 
+    list-style-type: none; text-align: center; 
+}
+
+li { 
+    display: inline; 
+}
+
+h3 { 
+    text-align: center; 
+}
+
+fieldset { 
+    text-align: center; 
+}
+
+table { 
+    text-align: center; 
+}
+
